@@ -17,11 +17,16 @@ def reverse( x: int) -> int:
         # print(reverse)
         x=int(x/10)
         count+=1
-    
-    return reverse *sign
+    max = pow(2,31) -1
+    min =  -1* (max+1)
+    if min <= reverse *sign <= max:
+        return reverse *sign
+    else:
+        return 0
 
 print(reverse(-49494))
 print(reverse(408))
 print(reverse(500))
-
+print(reverse(1534236469))
+# print(pow(2,31))
 
