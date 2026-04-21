@@ -1,9 +1,10 @@
 class Solution:
+    def __init__(self):
+        self.db = {0: 1, 1: 1}
+
     def climbStairs(self, n: int) -> int:
-        if n == 0:
-            return 1
-        if n == 1:
-            return 1
-        one_s = self.climbStairs(n-1)
-        sec_s = self.climbStairs(n-2)
-        return one_s + sec_s
+        if n in self.db:
+            return self.db[n]
+
+        self.db[n] = self.climbStairs(n - 1) + self.climbStairs(n - 2)
+        return self.db[n]
