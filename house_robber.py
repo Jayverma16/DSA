@@ -1,26 +1,23 @@
 # 198. House Robber
 class Solution:
     def rob(self, nums: list[int]) -> int:
-        # def rob_amount(nums,i):
-        cost_1= 0
-        cost_2 = 0
-        if len(nums)==1:
-            return nums[i]
-        if len(nums) == 2:
-            return max(nums[0],nums[1])
-        for i in range(0,len(nums),2):
-            
-            cost_1 += nums[i]
+        dp= [-1]*len(nums)
+        def rob_money(nums, i):
 
-        for i in range(1,len(nums),2):
-            cost_2 += nums[i]
+            if i < 0:
+                return 0
+            rob_current = 0
+            if dp[i] != -1:
+                rob_current = dp[i]
+            else:
+                rob_current = nums[i]+ rob_money(nums,i-2)
+                dp[i] = rob_current
 
-        return max(cost_2, cost_1)
+            skip_current = rob_money(nums, i-1)
 
-            
-            
+            return max(rob_current, skip_current)
 
-
+        return rob_money(nums,len(nums) -1)
 
 
 
