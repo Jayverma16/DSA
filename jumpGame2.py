@@ -3,7 +3,7 @@ def jump(nums: List[int]) -> int:
     n = len(nums)
     memo = {}
 
-    def backtrack(i):
+    def backtrack(i):      
         if i >= n - 1:
             return 0
 
