@@ -33,7 +33,7 @@ if __name__ == "__main__":
     addEdge(adj, 2, 0)
     addEdge(adj, 2, 3)
     addEdge(adj, 2, 4)
-
+    print(adj)
     # Perform DFS starting from vertex 0
     res = dfs(adj)
 
